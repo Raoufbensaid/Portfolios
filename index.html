@@ -57,12 +57,10 @@
                     <div class="div column right">
                         <div class="text"><span>Etudiant</span> concepteur d'éveloppeur d'applications</div>
                         <p>
-                            Salut ! Je m'appelle BENSAID Abderraouf, actuellement je suis étudiant en BAC +3, j'ai une sympathie spéciale pour le développement en Fullstack, la programmation en Backend et frontend sont pour moi une passion ! <br>
-                            Dans cette page je parle un peu de moi et mon parcours.
-                            J'ai pour projet de m'investir dans cette spécialité afin d'acquérir un bon niveau et être indépendant.
-                            En ce moment je suis étudiant à l'école Doranco, École Supérieure des Tech Créatives en <span>Alternance</span>.
+                            Salut ! Je m'appelle BENSAID Abderraouf, actuellement je suis étudiant en BAC +3, j'ai une sympathie spéciale pour le développement en Fullstack, la programmation en Backend et frontend sont pour moi une passion !<br>
+                            Dans cette page je parle un peu de moi et mon parcours. J'ai pour projet de m'investir dans cette spécialité afin d'acquérir un bon niveau et être indépendant. En ce moment je suis étudiant à l'école Doranco, École Supérieure des Tech Créatives en <span>Alternance</span>.
                         </p>
-                        <a href="./Curriculum vitæ/Curriculum vitæ.pdf" target="_blank">curriculum-vitae    <i class="fas fa-external-link-alt"></i></a>
+                        <a href="./Curriculum vitæ/curriculum-vitae.pdf" target="_blank">curriculum-vitae    <i class="fas fa-external-link-alt"></i></a>
                     </div>
                 </div>
             </div>
@@ -239,25 +237,26 @@
                             <div class="row">
                                 <a href="https://www.linkedin.com/in/raouf-bensaid/" target="_blank"><i class="fa-brands fa-linkedin"></i></a>
                                 <a href="https://gitlab.com/Raouf00" target="_blank"><i class="fa-brands fa-gitlab"></i></i></a>
+                                <a href="https://github.com/Raoufbensaid" target="_blank"><i class="fa-brands fa-github"></i></a>
                             </div>
                         </div>
                     </div>
                     <div class="column right">
                         <div class="text"></div>
-                        <form action="#">
+                        <form class="contact_form" action="#">
                             <div class="fields">
                                 <div class="field name">
-                                    <input type="text" placeholder="name" required>
+                                    <input type="text" class="name" placeholder="name" required>
                                 </div>
                                 <div class="field email">
-                                    <input type="email" placeholder="Email" required>
+                                    <input type="email" class="email" placeholder="Email" required>
                                 </div>
                             </div>
                             <div class="field">
-                                <input type="text" placeholder="Subject" required>
+                                <input type="text" class="msg" placeholder="Subject" required>
                             </div>
                             <div class="field textarea">
-                                <textarea cols="30" rows="10" placeholder="Describe project.." required></textarea>
+                                <textarea cols="30" rows="10" class="text" placeholder="Describe project.." required></textarea>
                             </div>
                             <div class="button">
                                 <button type="submit">Send message</button>
@@ -268,5 +267,33 @@
             </div>
         </section>
         <script src="script.js"></script>
+
+        <!-- tst contact -->
+        <script src="https://smtpjs.com/v3/smtp.js"></script>
+        <script>
+
+            const form = document.querySelector('.contact_form');
+
+            function sendMsg(e){
+                e.preventDefault();
+                
+                const name = document.querySelector('.name'),
+                    email = document.querySelector('.email'),
+                    msg = document.querySelector('.msg'),
+                    text = document.querySelector('.text');
+
+            Email.send({
+                SecureToken : "*",
+                To : '*',
+                From : email.value,
+                Subject : "Contact form",
+                Body : msg.value
+            }).then(
+            message => alert(message)
+            );
+            }
+
+            form.addEventListener('submit', sendMsg);
+        </script>
     </body>
 </html>

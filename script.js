@@ -29,7 +29,7 @@ $(document).ready(function(){
         typeSpeed: 100,
         backSpeed: 60,
         loop: true
-    })
+    });
 
     // owl carousel script
     $('.serv-content').owlCarousel({
